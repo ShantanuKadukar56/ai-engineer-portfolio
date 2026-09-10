@@ -17,6 +17,8 @@ export function useTilt<T extends HTMLElement>(maxDeg = 6) {
     const rx = -(py - 0.5) * maxDeg * 2
     el.style.setProperty('--rx', `${rx}deg`)
     el.style.setProperty('--ry', `${ry}deg`)
+    el.style.setProperty('--mx', `${px * 100}%`)
+    el.style.setProperty('--my', `${py * 100}%`)
   }
 
   function onMouseLeave() {
