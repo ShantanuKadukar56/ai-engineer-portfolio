@@ -39,9 +39,9 @@ export function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <button
           onClick={() => scrollTo('home')}
-          className="font-mono text-sm font-semibold text-slate-100 hover:text-cyan-300 transition-colors"
+          className="font-mono text-sm font-semibold text-slate-900 hover:text-blue-700 transition-colors"
         >
-          SK<span className="text-cyan-400">.</span>dev
+          SK<span className="text-blue-600">.</span>dev
         </button>
 
         <div className="hidden md:flex items-center gap-8">
@@ -57,7 +57,7 @@ export function Navbar() {
         </div>
 
         <button
-          className="md:hidden text-slate-200"
+          className="md:hidden text-slate-700"
           aria-label="Toggle menu"
           onClick={() => setMenuOpen((v) => !v)}
         >

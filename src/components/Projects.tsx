@@ -10,7 +10,7 @@ export function Projects() {
         <SectionHeading
           eyebrow="Projects"
           title="Shipped, not simulated"
-          subtitle="Two real systems built and deployed at Valethi Technologies."
+          subtitle="Real systems built at Valethi Technologies, plus a personal project built to explore something new."
         />
 
         {projects.length > 0 ? (

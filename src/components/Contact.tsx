@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { personal } from '../data/profile'
+import { useTilt } from '../hooks/useTilt'
 import { SectionHeading } from './ui/SectionHeading'
 
 const CONTACT_TILES = [
@@ -48,36 +49,9 @@ export function Contact() {
         <SectionHeading eyebrow="Contact" title="Let's build something intelligent." />
 
         <div className="grid sm:grid-cols-2 gap-4 mb-14">
-          {CONTACT_TILES.map((tile) => {
-            const content = (
-              <>
-                <div className="w-10 h-10 rounded-lg bg-cyan-400/10 text-cyan-300 flex items-center justify-center shrink-0">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                    {tile.icon}
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                  <p className="text-xs text-slate-500">{tile.label}</p>
-                  <p className="text-sm text-slate-200 truncate">{tile.value}</p>
-                </div>
-              </>
-            )
-            return tile.href ? (
-              <a
-                key={tile.key}
-                href={tile.href}
-                target={tile.key === 'linkedin' ? '_blank' : undefined}
-                rel="noreferrer"
-                className="glass-card tilt-hover flex items-center gap-4 p-4"
-              >
-                {content}
-              </a>
-            ) : (
-              <div key={tile.key} className="glass-card flex items-center gap-4 p-4">
-                {content}
-              </div>
-            )
-          })}
+          {CONTACT_TILES.map((tile) => (
+            <ContactTile key={tile.key} tile={tile} />
+          ))}
         </div>
 
         <form onSubmit={handleSubmit} className="glass-card p-8 space-y-5">
@@ -87,7 +61,7 @@ export function Contact() {
               placeholder="Your name"
               value={form.name}
               onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-              className="bg-white/[0.03] border border-border rounded-lg px-4 py-3 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-cyan-400/40"
+              className="bg-white border border-border rounded-lg px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-blue-600/40"
             />
             <input
               required
@@ -95,7 +69,7 @@ export function Contact() {
               placeholder="Your email"
               value={form.email}
               onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
-              className="bg-white/[0.03] border border-border rounded-lg px-4 py-3 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-cyan-400/40"
+              className="bg-white border border-border rounded-lg px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-blue-600/40"
             />
           </div>
           <textarea
@@ -104,16 +78,57 @@ export function Contact() {
             placeholder="What are you building?"
             value={form.message}
             onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-            className="w-full bg-white/[0.03] border border-border rounded-lg px-4 py-3 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-cyan-400/40 resize-none"
+            className="w-full bg-white border border-border rounded-lg px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-blue-600/40 resize-none"
           />
           <button
             type="submit"
-            className="px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-400 to-violet-400 text-bg font-semibold text-sm shadow-glow hover:brightness-110 transition"
+            className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold text-sm shadow-glow hover:brightness-110 transition"
           >
             Send Message
           </button>
         </form>
       </div>
     </section>
+  )
+}
+
+function ContactTile({ tile }: { tile: (typeof CONTACT_TILES)[number] }) {
+  const { ref, onMouseMove, onMouseLeave } = useTilt<HTMLAnchorElement | HTMLDivElement>(3)
+
+  const content = (
+    <>
+      <div className="w-10 h-10 rounded-lg bg-blue-600/10 text-blue-700 flex items-center justify-center shrink-0">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+          {tile.icon}
+        </svg>
+      </div>
+      <div className="min-w-0">
+        <p className="text-xs text-slate-500">{tile.label}</p>
+        <p className="text-sm text-slate-800 truncate">{tile.value}</p>
+      </div>
+    </>
+  )
+
+  return tile.href ? (
+    <a
+      ref={ref as React.Ref<HTMLAnchorElement>}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      href={tile.href}
+      target={tile.key === 'linkedin' ? '_blank' : undefined}
+      rel="noreferrer"
+      className="glass-card tilt-hover flex items-center gap-4 p-4"
+    >
+      {content}
+    </a>
+  ) : (
+    <div
+      ref={ref as React.Ref<HTMLDivElement>}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      className="glass-card tilt-hover flex items-center gap-4 p-4"
+    >
+      {content}
+    </div>
   )
 }

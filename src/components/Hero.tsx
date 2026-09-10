@@ -20,7 +20,7 @@ export function Hero() {
 
         <p className="font-script text-gradient-gold text-xl mb-3">The Portfolio</p>
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-50">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900">
           {personal.name}
         </h1>
 
@@ -28,7 +28,7 @@ export function Hero() {
           {personal.title} · Multi-Agent LLM Systems
         </p>
 
-        <p className="mt-6 max-w-2xl mx-auto text-slate-400 leading-relaxed">
+        <p className="mt-6 max-w-2xl mx-auto text-slate-600 leading-relaxed">
           I build production AI systems across multiple LLM providers, backed by the data engineering
           discipline to keep them reliable, not just impressive in a demo.
         </p>
@@ -40,7 +40,7 @@ export function Hero() {
               e.preventDefault()
               document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-400 to-violet-400 text-bg font-semibold text-sm shadow-glow hover:brightness-110 transition"
+            className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold text-sm shadow-glow hover:brightness-110 transition"
           >
             View Projects
           </a>
@@ -50,14 +50,14 @@ export function Hero() {
               e.preventDefault()
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="px-6 py-3 rounded-lg border border-border text-slate-200 font-semibold text-sm hover:border-cyan-400/40 hover:text-cyan-300 transition"
+            className="px-6 py-3 rounded-lg border border-border text-slate-700 font-semibold text-sm hover:border-blue-600/40 hover:text-blue-700 transition"
           >
             Get in Touch
           </a>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-600 animate-float">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 animate-float">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <path d="M12 4v16M6 14l6 6 6-6" />
         </svg>

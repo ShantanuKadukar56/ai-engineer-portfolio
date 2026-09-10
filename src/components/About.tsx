@@ -17,15 +17,15 @@ export function About() {
         <div className="grid md:grid-cols-5 gap-12">
           <div className="md:col-span-2 space-y-5">
             {about.paragraphs.map((p, i) => (
-              <p key={i} className="text-slate-400 leading-relaxed">
+              <p key={i} className="text-slate-600 leading-relaxed">
                 {p}
               </p>
             ))}
 
             <ul className="mt-6 space-y-3">
               {about.coreStrengths.map((s) => (
-                <li key={s} className="flex gap-3 text-sm text-slate-300">
-                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-400 shrink-0" />
+                <li key={s} className="flex gap-3 text-sm text-slate-700">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-600 shrink-0" />
                   {s}
                 </li>
               ))}
@@ -37,13 +37,13 @@ export function About() {
               <p className="section-eyebrow px-4 pt-4 sm:px-0 sm:pt-0 mb-5">Engineering Philosophy</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {about.philosophy.map((item, i) => (
-                  <div key={item.title} className="p-4 rounded-xl bg-white/[0.02] border border-border-soft">
-                    <div className="w-9 h-9 rounded-lg bg-cyan-400/10 text-cyan-300 flex items-center justify-center mb-3">
+                  <div key={item.title} className="p-4 rounded-xl bg-white border border-border-soft">
+                    <div className="w-9 h-9 rounded-lg bg-blue-600/10 text-blue-700 flex items-center justify-center mb-3">
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                         {PHILOSOPHY_ICONS[i % PHILOSOPHY_ICONS.length]}
                       </svg>
                     </div>
-                    <p className="font-semibold text-slate-100 text-sm">{item.title}</p>
+                    <p className="font-semibold text-slate-900 text-sm">{item.title}</p>
                     <p className="mt-1.5 text-xs text-slate-500 leading-relaxed">{item.detail}</p>
                   </div>
                 ))}

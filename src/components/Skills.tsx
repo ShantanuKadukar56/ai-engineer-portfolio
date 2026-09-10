@@ -42,13 +42,13 @@ function SkillCard({ cat }: { cat: SkillCategory }) {
       className="glass-card tilt-hover shine-sweep p-6"
     >
       <div className="flex items-start gap-4 mb-4">
-        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400/20 to-violet-400/20 text-cyan-300 flex items-center justify-center shrink-0">
+        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-600/15 to-violet-600/15 text-blue-700 flex items-center justify-center shrink-0">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
             {ICONS[cat.icon]}
           </svg>
         </div>
         <div>
-          <h3 className="font-semibold text-slate-100">{cat.name}</h3>
+          <h3 className="font-semibold text-slate-900">{cat.name}</h3>
           <p className="text-xs text-slate-500 mt-0.5">{cat.description}</p>
         </div>
       </div>

@@ -11,8 +11,8 @@ export function Education() {
           <div>
             <p className="section-eyebrow mb-4">Education</p>
             <div className="glass-card p-6">
-              <p className="font-semibold text-slate-100">{education.institution}</p>
-              <p className="text-sm text-slate-400 mt-1">{education.degree}</p>
+              <p className="font-semibold text-slate-900">{education.institution}</p>
+              <p className="text-sm text-slate-600 mt-1">{education.degree}</p>
               <div className="flex items-center justify-between mt-4 text-xs font-mono text-slate-500">
                 <span>{education.period}</span>
                 <span>{education.detail}</span>
@@ -25,13 +25,13 @@ export function Education() {
             <div className="space-y-3">
               {certifications.map((c) => (
                 <div key={c.name} className="glass-card p-4">
-                  <p className="text-sm font-medium text-slate-100">{c.name}</p>
+                  <p className="text-sm font-medium text-slate-900">{c.name}</p>
                   <div className="flex flex-wrap items-center justify-between gap-2 mt-2 text-xs text-slate-500">
                     <span>
                       {c.issuer}
                       {c.issued ? ` · ${c.issued}` : ''}
                     </span>
-                    {c.credentialId && <span className="font-mono text-slate-600">ID: {c.credentialId}</span>}
+                    {c.credentialId && <span className="font-mono text-slate-500">ID: {c.credentialId}</span>}
                   </div>
                 </div>
               ))}

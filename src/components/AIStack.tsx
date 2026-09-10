@@ -47,8 +47,8 @@ export function AIStack() {
           <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="AI engineering stack diagram">
             <defs>
               <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.5" />
+                <stop offset="0%" stopColor="#2563eb" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.55" />
               </linearGradient>
               <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
                 <feGaussianBlur stdDeviation="4" result="blur" />
@@ -64,7 +64,7 @@ export function AIStack() {
               return (
                 <g key={i}>
                   <path d={d} stroke="url(#lineGrad)" strokeWidth={1.5} fill="none" />
-                  <circle r={3} fill="#67e8f9" filter="url(#glow)">
+                  <circle r={3} fill="#2563eb" filter="url(#glow)">
                     <animateMotion dur={`${3 + (i % 5) * 0.4}s`} repeatCount="indefinite" path={d} />
                   </circle>
                 </g>
@@ -115,14 +115,14 @@ function Node({
   const width = label.length * charWidth + paddingX * 2
 
   const fill = isRoot
-    ? '#22d3ee'
+    ? '#2563eb'
     : isOutput
-      ? '#a78bfa'
+      ? '#7c3aed'
       : isBranch
-        ? 'rgba(34,211,238,0.12)'
-        : 'rgba(148,163,184,0.08)'
-  const stroke = isRoot || isOutput ? 'transparent' : isBranch ? 'rgba(34,211,238,0.4)' : 'rgba(148,163,184,0.25)'
-  const textColor = isRoot ? '#05070d' : isOutput ? '#05070d' : isBranch ? '#67e8f9' : '#cbd5e1'
+        ? 'rgba(37,99,235,0.10)'
+        : 'rgba(15,23,42,0.045)'
+  const stroke = isRoot || isOutput ? 'transparent' : isBranch ? 'rgba(37,99,235,0.45)' : 'rgba(15,23,42,0.18)'
+  const textColor = isRoot ? '#ffffff' : isOutput ? '#ffffff' : isBranch ? '#1d4ed8' : '#334155'
   const fontWeight = isRoot || isOutput ? 700 : isBranch ? 600 : 500
 
   return (
