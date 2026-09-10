@@ -14,43 +14,43 @@ html {
 
 body {
   margin: 0;
-  background: #05070d;
-  color: #e5e9f0;
+  background: #f8fafc;
+  color: #0f172a;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: rgba(34, 211, 238, 0.25);
-  color: #fff;
+  background: rgba(37, 99, 235, 0.18);
+  color: #0f172a;
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #05070d;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.25);
+  background: rgba(15, 23, 42, 0.18);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.28);
 }
 
 /* ---------- Layout backgrounds ---------- */
 
 .bg-engineering-grid {
   background-image:
-    linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(15, 23, 42, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.055) 1px, transparent 1px);
   background-size: 56px 56px;
   background-position: center top;
 }
 
 .bg-radial-fade {
-  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(34, 211, 238, 0.08), transparent 70%);
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(37, 99, 235, 0.08), transparent 70%);
 }
 
 .font-script {
@@ -61,14 +61,14 @@ body {
 /* ---------- Text gradients ---------- */
 
 .text-gradient-primary {
-  background: linear-gradient(90deg, #22d3ee 0%, #a78bfa 100%);
+  background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .text-gradient-gold {
-  background: linear-gradient(90deg, #f3e0ab 0%, #e8c987 50%, #c9a24d 100%);
+  background: linear-gradient(90deg, #c9a24d 0%, #b8860b 50%, #8a6d1f 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -77,25 +77,44 @@ body {
 /* ---------- Glass / card surfaces ---------- */
 
 .glass-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.75));
+  border: 1px solid rgba(15, 23, 42, 0.08);
   backdrop-filter: blur(6px);
   border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 16px 32px -20px rgba(15, 23, 42, 0.12);
   position: relative;
 }
 
-/* Hover tilt effect (JS sets --rx/--ry custom props on pointer move) */
+/* Hover tilt effect (JS sets --rx/--ry/--mx/--my custom props on pointer move) */
 .tilt-hover {
   --rx: 0deg;
   --ry: 0deg;
+  --mx: 50%;
+  --my: 50%;
   transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateZ(0);
   transition: transform 0.15s ease-out, border-color 0.2s ease, box-shadow 0.3s ease;
   will-change: transform;
+  overflow: hidden;
+}
+
+.tilt-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(220px circle at var(--mx) var(--my), rgba(37, 99, 235, 0.10), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .tilt-hover:hover {
-  border-color: rgba(34, 211, 238, 0.35);
-  box-shadow: 0 20px 60px -20px rgba(34, 211, 238, 0.25);
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 20px 60px -20px rgba(37, 99, 235, 0.22);
+}
+
+.tilt-hover:hover::after {
+  opacity: 1;
 }
 
 /* Shine sweep top line */
@@ -109,7 +128,7 @@ body {
   position: absolute;
   inset: 0 0 auto 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #22d3ee, #a78bfa, transparent);
+  background: linear-gradient(90deg, transparent, #2563eb, #7c3aed, transparent);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -118,7 +137,7 @@ body {
   transform: translateX(100%);
 }
 
-/* ---------- Starfield ---------- */
+/* ---------- Starfield (subtle floating particles) ---------- */
 
 .starfield {
   position: absolute;
@@ -131,7 +150,7 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: #cbd5e1;
+  background: #64748b;
   border-radius: 999px;
 }
 
@@ -142,7 +161,7 @@ body {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   font-size: 0.7rem;
-  color: #22d3ee;
+  color: #1d4ed8;
 }
 
 .pill-badge {
@@ -151,32 +170,32 @@ body {
   gap: 0.5rem;
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.7);
   font-size: 0.8rem;
-  color: #cbd5e1;
+  color: #334155;
 }
 
 /* ---------- Empty state ---------- */
 
 .empty-state {
-  border: 1px dashed rgba(148, 163, 184, 0.28);
+  border: 1px dashed rgba(15, 23, 42, 0.18);
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.015);
+  background: rgba(15, 23, 42, 0.02);
 }
 
 /* ---------- Nav active link ---------- */
 
 .nav-link {
   position: relative;
-  color: #94a3b8;
+  color: #64748b;
   transition: color 0.2s ease;
 }
 .nav-link:hover {
-  color: #e5e9f0;
+  color: #0f172a;
 }
 .nav-link.active {
-  color: #f1f5f9;
+  color: #0f172a;
 }
 .nav-link.active::after {
   content: '';
@@ -186,7 +205,7 @@ body {
   bottom: -6px;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #22d3ee, #a78bfa);
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
 }
 
 /* ---------- Tech badge ---------- */
@@ -196,8 +215,50 @@ body {
   font-size: 0.72rem;
   padding: 0.3rem 0.65rem;
   border-radius: 0.5rem;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  background: rgba(255, 255, 255, 0.02);
-  color: #cbd5e1;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(15, 23, 42, 0.02);
+  color: #334155;
   white-space: nowrap;
+}
+
+/* ---------- Cursor-driven dynamic effects ---------- */
+
+.cursor-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(600px circle at var(--spot-x, 50%) var(--spot-y, 10%), rgba(37, 99, 235, 0.10), transparent 70%);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  margin-top: -15px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(37, 99, 235, 0.45);
+  pointer-events: none;
+  z-index: 60;
+  transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  will-change: transform;
+}
+
+.cursor-ring--active {
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+  margin-top: -25px;
+  background: rgba(124, 58, 237, 0.08);
+  border-color: rgba(124, 58, 237, 0.55);
+}
+
+@media (pointer: coarse) {
+  .cursor-spotlight,
+  .cursor-ring {
+    display: none;
+  }
 }

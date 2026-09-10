@@ -9,10 +9,14 @@ import { GitHubSection } from './components/GitHubSection'
 import { Education } from './components/Education'
 import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
+import { CursorSpotlight } from './components/ui/CursorSpotlight'
+import { CursorRing } from './components/ui/CursorRing'
 
 function App() {
   return (
     <div className="bg-bg min-h-screen">
+      <CursorSpotlight />
+      <CursorRing />
       <Navbar />
       <Hero />
       <About />
