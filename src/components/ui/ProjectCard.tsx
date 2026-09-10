@@ -13,18 +13,18 @@ export function ProjectCard({ project }: { project: Project }) {
       className="glass-card tilt-hover shine-sweep p-7 flex flex-col gap-5"
     >
       <div>
-        <h3 className="text-lg font-bold text-slate-100">{project.name}</h3>
-        <p className="mt-2 text-sm text-slate-400 leading-relaxed">{project.tagline}</p>
+        <h3 className="text-lg font-bold text-slate-900">{project.name}</h3>
+        <p className="mt-2 text-sm text-slate-600 leading-relaxed">{project.tagline}</p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <p className="section-eyebrow mb-1.5 text-[0.65rem]">Problem</p>
-          <p className="text-sm text-slate-400 leading-relaxed">{project.problem}</p>
+          <p className="text-sm text-slate-600 leading-relaxed">{project.problem}</p>
         </div>
         <div>
           <p className="section-eyebrow mb-1.5 text-[0.65rem]">Solution</p>
-          <p className="text-sm text-slate-400 leading-relaxed">{project.solution}</p>
+          <p className="text-sm text-slate-600 leading-relaxed">{project.solution}</p>
         </div>
       </div>
 
@@ -37,12 +37,12 @@ export function ProjectCard({ project }: { project: Project }) {
       {(project.github || project.demo) && (
         <div className="flex gap-4 pt-2 text-sm">
           {project.github && (
-            <a href={project.github} target="_blank" rel="noreferrer" className="text-cyan-400 hover:text-cyan-300">
+            <a href={project.github} target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700">
               GitHub →
             </a>
           )}
           {project.demo && (
-            <a href={project.demo} target="_blank" rel="noreferrer" className="text-violet-400 hover:text-violet-300">
+            <a href={project.demo} target="_blank" rel="noreferrer" className="text-violet-600 hover:text-violet-700">
               Live demo →
             </a>
           )}
