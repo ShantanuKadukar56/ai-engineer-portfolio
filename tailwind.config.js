@@ -5,18 +5,18 @@ export default {
     extend: {
       colors: {
         bg: {
-          DEFAULT: '#05070d',
-          soft: '#080b14',
-          card: '#0c1019',
+          DEFAULT: '#f8fafc',
+          soft: '#eef2f7',
+          card: '#ffffff',
         },
         border: {
-          DEFAULT: 'rgba(148,163,184,0.14)',
-          soft: 'rgba(148,163,184,0.08)',
+          DEFAULT: 'rgba(15,23,42,0.10)',
+          soft: 'rgba(15,23,42,0.06)',
         },
         accent: {
-          cyan: '#22d3ee',
-          violet: '#a78bfa',
-          gold: '#e8c987',
+          cyan: '#0e7490',
+          violet: '#6d28d9',
+          gold: '#b8860b',
         },
       },
       fontFamily: {
@@ -26,11 +26,11 @@ export default {
       },
       backgroundImage: {
         'grid-pattern':
-          'linear-gradient(rgba(148,163,184,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.06) 1px, transparent 1px)',
+          'linear-gradient(rgba(15,23,42,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.05) 1px, transparent 1px)',
       },
       boxShadow: {
-        glow: '0 0 40px -10px rgba(34,211,238,0.35)',
-        'glow-violet': '0 0 40px -10px rgba(167,139,250,0.35)',
+        glow: '0 0 40px -10px rgba(37,99,235,0.35)',
+        'glow-violet': '0 0 40px -10px rgba(124,58,237,0.35)',
       },
       keyframes: {
         'pulse-dot': {
